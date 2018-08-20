@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Challange</title>
+  <link rel="stylesheet" href="./css/styles.min.css">
+</head>
+
+<body>
+  <main>
+    <section class="currency-exchanger">
+      <div class="selector">
+        <div class="selector__invitation caption">select currency to exchange:</div>
+        <div class="selector__currencies">
+          <div class="selector__current">
+            <span class="selector__current-value js-curr-selected">NO CURRENCY</span>
+          </div>
+          <div class="selector__options hidden">
+            <ul class="selector__currency-list js-currency-list">
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="currency-info">
+        <div class="currency currency--ethereum" data-currency="ETH">
+          <div class="currency__name caption">ethereum</div>
+          <div class="currency__image-wrapper">
+            <img src="./img/ethereum.png" srcset="./img/ethereum@2x.png 2x" alt="ethereum" class="currency__image">
+          </div>
+          <div class="currency__price">
+            <span class="caption">price:</span>
+            <span class="js-price"></span>
+          </div>
+          <div class="currency__rate">
+            <div class="currency__percentage-switch js-switch-container">
+              <span class="currency__switch-label caption">percent change</span>
+              <input type="checkbox" class="currency__switch hidden js-switch" checked>
+              <div class="currency__switch-slider js-switch-slider">
+                <div class="currency__switch-thumb js-switch-thumb"></div>
+              </div>
+            </div>
+            <ul class="currency__change">
+              <li class="currency__change-item">
+                <span class="caption">hour change</span>
+                <span class="currency__change-value js-hour-change"></span>
+              </li>
+              <li class="currency__change-item">
+                <span class="caption">day change</span>
+                <span class="currency__change-value js-day-change"></span>
+              </li>
+              <li class="currency__change-item">
+                <span class="caption">week change</span>
+                <span class="currency__change-value js-week-change"></span>
+              </li>
+              <li class="currency__change-item">
+                <span class="caption">month change</span>
+                <span class="currency__change-value js-month-change"></span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="currency currency--litecoin" data-currency="LTC">
+          <div class="currency__name caption">litecoin</div>
+          <div class="currency__image-wrapper">
+            <img src="./img/litecoin.png" srcset="./img/litecoin@2x.png 2x" alt="litecoin" class="currency__image">
+          </div>
+          <div class="currency__price">
+            <span class="caption">price:</span>
+            <span class="js-price"></span>
+          </div>
+          <div class="currency__rate currency__rate--litecoin">
+            <div class="currency__percentage-switch js-switch-container">
+              <span class="currency__switch-label caption">percent change</span>
+              <input type="checkbox" class="currency__switch hidden js-switch" checked>
+              <div class="currency__switch-slider js-switch-slider">
+                <div class="currency__switch-thumb js-switch-thumb"></div>
+              </div>
+            </div>
+            <ul class="currency__change">
+              <li class="currency__change-item">
+                <span class="caption">hour change</span>
+                <span class="currency__change-value js-hour-change"></span>
+              </li>
+              <li class="currency__change-item">
+                <span class="caption">day change</span>
+                <span class="currency__change-value js-day-change"></span>
+              </li>
+              <li class="currency__change-item">
+                <span class="caption">week change</span>
+                <span class="currency__change-value js-week-change"></span>
+              </li>
+              <li class="currency__change-item">
+                <span class="caption">month change</span>
+                <span class="currency__change-value js-month-change"></span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="currency currency--bitcoin" data-currency="BTC">
+          <div class="currency__name caption">bitcoin</div>
+          <div class="currency__image-wrapper">
+            <img src="./img/bitcoin.png" srcset="./img/bitcoin@2x.png 2x" alt="bitcoin" class="currency__image">
+          </div>
+          <div class="currency__price">
+            <span class="caption">price:</span>
+            <span class="js-price"></span>
+          </div>
+          <div class="currency__rate currency__rate--bitcoin">
+            <div class="currency__percentage-switch js-switch-container">
+              <span class="currency__switch-label caption">percent change</span>
+              <input type="checkbox" class="currency__switch hidden js-switch" checked>
+              <div class="currency__switch-slider js-switch-slider">
+                <div class="currency__switch-thumb js-switch-thumb"></div>
+              </div>
+            </div>
+            <ul class="currency__change">
+              <li class="currency__change-item">
+                <span class="caption">hour change</span>
+                <span class="currency__change-value js-hour-change"></span>
+              </li>
+              <li class="currency__change-item">
+                <span class="caption">day change</span>
+                <span class="currency__change-value js-day-change"></span>
+              </li>
+              <li class="currency__change-item">
+                <span class="caption">week change</span>
+                <span class="currency__change-value js-week-change"></span>
+              </li>
+              <li class="currency__change-item">
+                <span class="caption">month change</span>
+                <span class="currency__change-value js-month-change"></span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+  <script src="./js/scripts.js"></script>
+</body>
+
+</html>

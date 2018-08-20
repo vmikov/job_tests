@@ -1,0 +1,159 @@
+.currency-info{
+  padding: 0;
+}
+
+.currency {
+  @extend %border-radius;
+  position: relative;
+  width: 308px;
+  height: 354px;
+  padding: 0 30px;
+  box-sizing: border-box;
+
+  &:not(:last-child){
+    margin-bottom: 30px;
+  }
+
+  &--ethereum {
+    background-color: $ethereum-back-color;
+    background-image: linear-gradient(160deg, rgba($fore-color-main, 0.11) 145px, transparent 0),
+      radial-gradient(circle closest-side at 65% 30%, $fore-color-main, $ethereum-color);
+  }
+
+  &--litecoin{
+    background-color: rgb(47, 47, 47);
+    background-image: linear-gradient(160deg, rgba($fore-color-main, 0.11) 145px, transparent 0),
+      radial-gradient(circle closest-side at 152px 118px, 
+      $fore-color-main, 
+      rgba($fore-color-main, .35) 55%, 
+      rgba($fore-color-main, .2) 75%, 
+      transparent 130%);
+  }
+
+  &--bitcoin{
+    background-color: rgb(52, 9, 0);    
+    background-image: linear-gradient(160deg, rgba($fore-color-main, 0.11) 145px, transparent 0),
+      radial-gradient(circle closest-side at 152px 118px, 
+      $bitcoin-glow-color, 
+      rgba($bitcoin-glow-color, .35) 55%, 
+      rgba($bitcoin-glow-color, .2) 75%, 
+      transparent 130%);
+  }
+
+  &__image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 230px;
+    padding-top: 56px;
+  }
+
+  &--ethereum &__image-wrapper{
+    justify-content: flex-start;
+    padding-top: 0;
+    align-items: stretch;
+  }
+
+  &--bitcoin &__image-wrapper{
+    padding-top: 42px;
+  }
+
+  &__name {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 2.7;
+    transform: translateX(-50%);
+  }
+
+  &__price{
+    @extend %flex-between;
+    position: absolute;
+    top: 170px;
+    left: 30px;
+    right: 30px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 2.7;
+  }
+
+  &__rate{
+    font-size: 13px;
+    font-weight: 700;
+    margin-top: -7px;
+  }
+
+  // &__rate--litecoin {
+  //   padding-top: 56px;
+  // }
+
+  // &__rate--bitcoin {
+  //   padding-top: 36px;
+  // }
+
+  &__percentage-switch{
+    @extend %flex-between;
+  }
+
+  &__change-item{
+    @extend %flex-between;
+    line-height: 1.4;
+  }
+
+  &__change {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0 0;
+    color: rgba($fore-color-main, .5); 
+  }
+
+  &__change-value{
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  &__change-value--ok{
+    color: $change-value-color-ok;
+  }
+
+  &__change-value--danger{
+    color: $change-value-color-danger;
+  }
+
+  &__switch{
+    &-label{
+      font-weight: 700;
+    }
+
+    &-slider{
+      display: flex;
+      margin-top: 3px;
+      justify-content: flex-end;
+      height: 14px;
+      width: 42px;
+      border-radius: 7px;
+      background-color: $switch-off-color;
+      box-shadow: inset 0 4px 7px $switch-off-shadow-color;
+      cursor: pointer;
+    }
+
+    &:checked + &-slider{
+      justify-content: flex-start;
+      background-color: $switch-on-color;
+      box-shadow: inset 0 3px 7px $switch-on-shadow-color;
+    }
+
+    &-thumb{
+      height: 24px;
+      width: 24px;
+      border-radius: 50%;
+      transform: translateY(-5px);
+      background-image: url(../img/thumb.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: 0 0;
+    }
+  }
+}

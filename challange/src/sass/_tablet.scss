@@ -1,0 +1,29 @@
+@media screen and (min-width: 768px){
+  .selector{
+    display: block;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    width: auto;
+  }
+
+  .currency{
+    margin: 0;
+  }
+
+  .currency:last-child{
+    margin: auto;
+  }
+
+  .currency-exchanger{
+    margin: auto;
+    max-width: 646px;
+  }
+  
+  .currency-info{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}

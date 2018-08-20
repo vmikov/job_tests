@@ -1,0 +1,26 @@
+*::before,
+*::after,
+* {
+  box-sizing: inherit;
+}
+
+body {
+  min-height: 100vh;
+  font-family: $ff-main-bold;
+  background-color: $bg-color;
+  color: $fore-color-main;
+}
+
+span{
+  display: inline-block;
+}
+
+// img {
+//   display: block;
+//   max-width: 100%;
+//   height: auto;
+// }
+
+.hidden {
+  display: none;
+}
