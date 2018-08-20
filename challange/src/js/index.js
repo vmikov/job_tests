@@ -15,7 +15,7 @@ const initEventHandling = () => {
   const currencyItems = document.querySelectorAll(".js-curr-option");
 
   if (currencySelection && currencyOptions && currencyItems.length > 0) {
-    currencySelection.addEventListener("click", e => {
+    currencySelection.addEventListener("click", function (e) {
       e.stopPropagation();
       currencyOptions.classList.toggle("hidden");
     });
@@ -33,7 +33,7 @@ const initEventHandling = () => {
     currentCurrElem.addEventListener('mouseenter', addHighlight);
     currentCurrElem.addEventListener('mouseleave', removeHighlight);
 
-    currencyItems.forEach(item => {
+    Array.from(currencyItems).forEach(item => {
       item.addEventListener('mouseenter', addHighlight);
       item.addEventListener('mouseleave', removeHighlight);
     });
@@ -46,7 +46,7 @@ const initEventHandling = () => {
   });
 
   document.addEventListener("keydown", e => {
-    if (e.key === "Escape") {
+    if (e.key === "Esc" || e.key === "Escape") {
       if (!currencyOptions.classList.contains("hidden")) {
         currencyOptions.classList.add("hidden");
       }
@@ -54,7 +54,7 @@ const initEventHandling = () => {
   });
 
   let switchContainers = document.querySelectorAll('.js-switch-container');
-  switchContainers.forEach(elem => {
+  Array.from(switchContainers).forEach(elem => {
     elem.addEventListener('click', e => {
       if (e.target.classList.contains('js-switch-slider') ||
         e.target.classList.contains('js-switch-thumb')) {
@@ -62,8 +62,21 @@ const initEventHandling = () => {
         if (check) {
           check.checked = !check.checked;
           if (lastResults) {
-            const card = e.target.closest('.currency');
-            const cryptoCurrency = card.dataset.currency;
+            let card = null;
+            if (e.target.closest) {
+              card = e.target.closest('.js-currency');
+            } else {
+              let parent = e.target.parentElement;
+              do {
+                if (parent.classList.contains('js-currency')) {
+                  card = parent;
+                } else {
+                  parent = parent.parentElement;
+                }
+              } while (card === null);
+            }
+            // const cryptoCurrency = card.dataset.currency;
+            const cryptoCurrency = card.getAttribute('data-currency');
             const currency = currentCurrElem.textContent;
             const symbol = signs[currencies.indexOf(currency)];
             setChanges(card, check.checked, lastResults[cryptoCurrency].changes, symbol);
@@ -78,13 +91,27 @@ const getRates = (currency) => {
   const results = [];
   cryptoCurrs.forEach(crypto => {
     const url = urlBase + crypto + currency;
-    const result = fetch(url)
-      .then(response => {
-        if (response.ok) {
-          return response.json();
+    // const result = fetch(url)
+    //   .then(response => {
+    //     if (response.ok) {
+    //       return response.json();
+    //     }
+    //     throw new Error(response.statusText);
+    //   });
+    const result = new Promise((resolve, reject) => {
+      const xhr = new XMLHttpRequest();
+      xhr.open('GET', url);
+      xhr.send();
+      xhr.onreadystatechange = e => {
+        if (xhr.readyState != 4) {
+          return;
         }
-        throw new Error(response.statusText);
-      });
+        if (xhr.status != 200) {
+          reject(xhr.statusText);
+        }
+        resolve(JSON.parse(xhr.responseText));
+      };
+    });
     results.push(result);
   });
   return Promise.all(results);
@@ -154,7 +181,8 @@ function setChanges(card, percentage, changes, symbol) {
 function updateRates(currency, results) {
   lastResults = results;
   Object.entries(results).forEach(([key, value]) => {
-    const card = cards.filter(elem => elem.dataset.currency === key)[0];
+    // const card = cards.filter(elem => elem.dataset.currency === key)[0];
+    const card = cards.filter(elem => elem.getAttribute('data-currency') === key)[0];
     const price = card.querySelector('.js-price');
     const symbol = signs[currencies.indexOf(currency)];
     price.textContent = symbol + formatNumber(value.last.toFixed(2), false);
@@ -169,7 +197,7 @@ const initUI = () => {
 
   const currencyList = document.querySelector(".js-currency-list");
 
-  currencies.forEach((curr, i) => {
+  Array.from(currencies).forEach((curr, i) => {
     const li = document.createElement('li');
     li.className = 'selector__currency-item js-curr-option' + (i === 0 ? ' hidden' : '');
     li.textContent = curr;
@@ -179,7 +207,6 @@ const initUI = () => {
     currencyList.appendChild(li);
     currencyElems.push(li);
   });
-
   updateUI(currentCurrency);
 };
 

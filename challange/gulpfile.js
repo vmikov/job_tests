@@ -71,14 +71,11 @@ gulp.task("images", () =>
 
 gulp.task("scripts", () =>
   gulp
-    // .src(["./src/js/polyfill.min.js", "./src/js/index.js"])
-    .src("./src/js/*.js")
+    .src(["./node_modules/babel-polyfill/dist/polyfill.min.js", "./src/js/index.js"]) //src("./src/js/*.js")
     .pipe(plumber())
     .pipe(
       babel({
-        presets: [["env", {
-          "browsers": ["last 2 versions", "ie >= 10"]
-        }]]
+        presets: ["env"]
       })
     )
     .pipe(concat("scripts.js"))
