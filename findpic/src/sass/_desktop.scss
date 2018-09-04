@@ -1,0 +1,22 @@
+@media screen and (min-width: 960px){
+  .query{
+    width: 34.25rem;
+  }
+
+  .data{
+    max-width: 55.5rem;
+  }
+
+  .gallery{
+    &__item{
+
+      &:not(:nth-child(3n)){
+        margin-right: 0;
+      }
+
+      &:not(:nth-child(4n)){
+        margin-right: 1rem;
+      }
+    }
+  }
+}

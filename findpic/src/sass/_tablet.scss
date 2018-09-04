@@ -1,0 +1,44 @@
+@media screen and (min-width: 768px){
+  .logo{
+    margin-top: 0.5rem;
+
+    &--init{
+      margin-top: 8rem;
+    }
+  }
+
+  header{
+    height: 10.625rem;
+  }
+
+  .query{
+    min-width: unset;
+    max-width: unset;
+    width: 25rem;
+  }
+
+  main{
+    padding-top: 12.5rem;
+  }
+
+  .data{
+    max-width: 41.375rem;
+  }
+
+  .gallery{
+    &__item{
+
+      &:nth-child(odd){
+        margin-right: 0;
+      }
+
+      &:not(:nth-child(3n)){
+        margin-right: 1rem;
+      }
+    }
+  }
+
+  .img-viewport{
+    width: 704px;
+  }
+}

@@ -1,0 +1,20 @@
+.menu{
+  position: absolute;
+  top: $body-padding;
+  right: .625rem;
+  display: flex;
+  justify-content: flex-end;
+
+  &__link--favs{
+    display: flex;
+    align-items: center;
+    color: $color-tool;
+
+    &::before{
+      content: '\2605';
+      display: block;
+      margin-right: .5rem;
+      font-size: 1.4rem;
+    }
+  }
+}
