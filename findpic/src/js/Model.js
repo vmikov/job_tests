@@ -26,6 +26,7 @@ export default class Model {
 
     const item = favs[0];
     this.favs = this.favs.filter(item => item.id !== id);
+    this.storage.remove(id);
     return item;
   }
 }
