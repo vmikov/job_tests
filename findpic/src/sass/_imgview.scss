@@ -1,0 +1,40 @@
+.img-viewport{
+  max-width: 704px;
+  max-height: 408px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.img-toolbar{
+  background-color: transparent;
+  padding: 1rem 0;
+}
+
+.img-tools{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 2.25rem;
+  width: 5.125rem;
+  margin: auto;
+  padding: 0 1rem;
+  border-radius: 1.125rem;
+  background-color: $color-tool;
+}
+
+.img-tools.centered{
+  justify-content: center;
+}
+
+.img-tool-nav{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-tool-nav.spaced-around{
+  flex-basis: 100%;
+  justify-content: space-around;
+}

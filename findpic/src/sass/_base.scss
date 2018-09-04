@@ -1,0 +1,30 @@
+*::before,
+*::after,
+* {
+  box-sizing: inherit;
+}
+
+html{
+  font-size: 16px;
+}
+
+body{
+  font-family: $font-main;
+  min-width: 320px;
+}
+
+img{
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+main{
+  display: block;
+  padding-top: 15.4rem;
+  padding-bottom: 2rem;
+}
+
+.hidden {
+  display: none;
+}

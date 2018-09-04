@@ -1,0 +1,68 @@
+.btn {
+  border: none;
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+}
+
+.btn--favs{
+  padding: 0;
+  background-color: transparent;
+}
+
+.btn--tool{
+  padding: 0;
+  align-self: stretch;
+  background-color: transparent;
+  color: $color-alt;
+
+  &:hover{
+    text-shadow: 0 0 2px $color-alt;
+  }
+}
+
+.btn--prev{
+  transform: rotate(90deg);
+  padding-right: 1px;
+  line-height: .8;
+}
+
+.btn--next{
+  transform: rotate(-90deg);
+  padding-left: 1px;
+  line-height: .8;
+}
+
+.btn--save{
+  display: inline-block;
+  color: $color-fav;
+  font-size: 1.1rem;
+}
+
+.btn--close{
+  font-size: .6rem;
+}
+
+.btn--fav-close{
+  display: none;
+  position: absolute;
+  right: 0.45rem;
+  top: 0.45rem;
+  z-index: 2;
+  font-size: 0.725rem;
+}
+
+.btn--to-top {
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+  padding-bottom: 3px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  box-shadow: 0 -4px 10px rgba(1, 2, 2, 0.2);
+  background-color: $color-fav;
+  color: $color-alt;
+  transform: rotate(180deg);
+  transition: all 0.5s;
+  opacity: 0;
+}

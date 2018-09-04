@@ -1,0 +1,51 @@
+$border-radius: .812rem;
+
+.query{
+  display: flex;
+  justify-content: space-between;
+  min-width: 300px;
+  max-width: calc(100% - 20px);
+  font-size: .875rem;
+}
+
+.query__input{
+  flex-basis: 29rem;
+  max-width: 29rem;
+  margin-right: .875rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  box-sizing: border-box;
+  border-radius: $border-radius;
+  border: 2px solid $color-query-border;
+  outline: none;
+
+  &::placeholder{
+    font-size: .625rem;
+    color: $color-placeholder;
+  }
+}
+
+.query__submit{
+  width: 5.25rem;
+  min-width: 5.25rem;
+  padding: 0;
+}
+
+.query-next{
+  padding: 0 1rem;
+}
+
+.query__submit, 
+.query-next{
+  @include border-radius($border-radius);
+  height: 1.625rem;
+  font-family: $font-alt;
+  line-height: 1.5;
+  background-color: $color-fav;
+  color: $color-alt;
+  outline: none;
+
+  &::first-letter{
+    text-transform: uppercase;
+  }
+}

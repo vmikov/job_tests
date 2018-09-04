@@ -1,0 +1,31 @@
+header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 13.625;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $color-alt;
+  z-index: 1;
+}
+
+.header-init{
+  height: 18.625rem;
+}
+
+.logo{
+  margin-top: 3.5rem;
+  margin-bottom: 2.875rem;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  min-width: 302px;
+
+  &--init{
+    margin-top: 8rem;
+  }
+}

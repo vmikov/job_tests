@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Team-02 work</title>
+</head>
+
+<body class="modal-hidden">
+  <header class="header-init js-header">
+    <a href="#" class="logo logo--init js-logo">
+      <img src=" ../src/img/logo.png " srcset="../src/img/logo@2x.png 2x " alt="logo ">
+    </a>
+    <nav class="menu">
+      <div class="menu__item">
+        <button class="btn btn--favs menu__link--favs js-menu-favs ">Избранное</button>
+      </div>
+    </nav>
+    <form class="query js-query-start">
+      <input type="text" class="query__input js-query-subject" placeholder="Введите поисковый запрос"
+        autofocus>
+      <button class="btn query__submit js-query-submit">поиск</button>
+    </form>
+  </header>
+  <main>
+    <div class="data js-query-results hidden">
+      <div class="gallery js-results-gallery"></div>
+      <div class="result-actions">
+        <button class="btn query-next hidden js-query-next">показать еще</button>
+      </div>
+    </div>
+    <div class="data js-favs hidden">
+      <div class="favs__caption">Избранное</div>
+      <div class="gallery js-favs-gallery"></div>
+    </div>
+  </main>
+
+  <div class="backdrop js-backdrop"></div>
+  <div class="modal js-modal"></div>
+  <button class="btn btn--to-top js-to-top">&#9013;</button>
+
+</body>
+
+</html>
