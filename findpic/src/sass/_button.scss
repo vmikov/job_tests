@@ -54,12 +54,16 @@
 
 .btn--to-top {
   position: fixed;
+  box-sizing: border-box;
   right: 2rem;
   bottom: 2rem;
+  height: 26px;
+  width: 26px;
+  padding: 0;
   padding-bottom: 3px;
-  border: 1px solid transparent;
   border-radius: 50%;
   box-shadow: 0 -4px 10px rgba(1, 2, 2, 0.2);
+  line-height: 10px;
   background-color: $color-fav;
   color: $color-alt;
   transform: rotate(180deg);

@@ -364,7 +364,7 @@ main {
   top: 50%;
   left: 50%;
   min-width: 320px;
-  width: 100%;
+  max-width: 100%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   display: flex;
@@ -426,12 +426,16 @@ body.modal-hidden > .modal {
 
 .btn--to-top {
   position: fixed;
+  box-sizing: border-box;
   right: 2rem;
   bottom: 2rem;
+  height: 26px;
+  width: 26px;
+  padding: 0;
   padding-bottom: 3px;
-  border: 1px solid transparent;
   border-radius: 50%;
   box-shadow: 0 -4px 10px rgba(1, 2, 2, 0.2);
+  line-height: 10px;
   background-color: #cddc39;
   color: #fff;
   -webkit-transform: rotate(180deg);
