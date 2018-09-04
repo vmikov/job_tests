@@ -8,7 +8,7 @@ import imgViewFunc from "../templates/imgview.hbs";
 
 export default class App {
   constructor() {
-    const storage = new Storage("pictureFinder");
+    const storage = Storage.create("pictureFinder");
     const model = new Model(storage);
     const view = new View();
     this.controller = new Controller(model, view);

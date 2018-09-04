@@ -11,19 +11,22 @@ export default class Storage {
     }
   }
 
+  static create(key) {
+    let storage = null;
+    try {
+      storage = new Storage(key);
+    } catch (err) {
+      console.log(err.message);
+    }
+    return storage;
+  }
+
   get() {
     if (!this.storage) {
       return null;
     }
 
-    let value = this.storage.getItem(this.key);
-    try {
-      value = JSON.parse(value);
-    } catch (err) {
-      console.log(err.message);
-      value = { items: [] };
-    }
-    return value;
+    return JSON.parse(this.storage.getItem(this.key));
   }
 
   set(value) {
@@ -31,10 +34,34 @@ export default class Storage {
       return;
     }
 
+    this.storage.setItem(this.key, JSON.stringify(value));
+  }
+
+  items() {
     try {
-      this.storage.setItem(this.key, JSON.stringify(value));
+      const data = this.get();
+      if (data && data.items) {
+        return data.items;
+      } else {
+        this.set({ items: [] });
+        return [];
+      }
     } catch (err) {
       console.log(err.message);
+      return [];
     }
+  }
+
+  add(item) {
+    const data = this.get();
+    data.items.push(item);
+    this.set(data);
+  }
+
+  remove(id) {
+    const data = this.get();
+    const items = data.items;
+    data.items = items.filter(item => item.id !== id);
+    this.set(data);
   }
 }

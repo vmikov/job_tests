@@ -25,12 +25,20 @@ export default class Controller {
   }
 
   addToFavourites(item) {
-    this.model.add(item);
+    try {
+      this.model.add(item);
+    } catch (err) {
+      console.log(err.message);
+    }
   }
 
   removeFromFavourites(id) {
-    const fav = this.model.remove(id);
-    this.view.removeFav(fav);
+    try {
+      const fav = this.model.remove(id);
+      this.view.removeFav(fav);
+    } catch (err) {
+      console.log(err.message);
+    }
   }
 
   viewFavourites() {
