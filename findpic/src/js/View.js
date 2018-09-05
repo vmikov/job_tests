@@ -125,9 +125,9 @@ export default class View extends EventEmitter {
       e.preventDefault();
     }
 
-    // if (!this.queryResults.classList.contains(View.HIDDEN_CLASS)) {
-    //   return;
-    // }
+    if (e && e.target === this.logo && !this.queryResults.classList.contains(View.HIDDEN_CLASS)) {
+      return;
+    }
 
     if (this.resultsGallery.children.length === 0) {
       this.header.classList.add(View.HEADER_INIT_CLASS);
