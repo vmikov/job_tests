@@ -148,6 +148,8 @@ export default class View extends EventEmitter {
 
       this.queryResults.classList.remove(View.HIDDEN_CLASS);
       this.favs.classList.add(View.HIDDEN_CLASS);
+
+      this.startSearchInput.focus();
     }
   }
 

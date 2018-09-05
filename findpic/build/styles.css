@@ -444,7 +444,8 @@ body.modal-hidden > .modal {
   opacity: 0; }
   .btn--to-top:active {
     box-shadow: inset 0 4px 3px rgba(1, 2, 2, 0.1);
-    background-color: #b2c022; }
+    background-color: #b2c022;
+    text-shadow: 0 1px 1px olive; }
 
 header {
   position: fixed;
@@ -558,11 +559,13 @@ header {
 
 .query__submit:focus,
 .query-next:focus {
-  box-shadow: 0 0 0 1px #afb0b3, 0 4px 10px rgba(1, 2, 2, 0.3); }
+  box-shadow: 0 4px 10px rgba(1, 2, 2, 0.3);
+  text-shadow: 0 1px 1px olive; }
 
 .query__submit:active,
 .query-next:active {
   box-shadow: inset 0 4px 3px rgba(1, 2, 2, 0.1);
+  text-shadow: 0 1px 1px olive;
   background-color: #becd24; }
 
 .result-actions {
