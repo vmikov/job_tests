@@ -547,7 +547,8 @@ header {
   padding: 0; }
 
 .query-next {
-  padding: 0 1rem; }
+  padding: 0 1rem;
+  font-size: .875rem; }
 
 .query__submit,
 .query-next {
