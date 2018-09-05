@@ -12,9 +12,18 @@
 
     &::before{
       content: '\2605';
-      display: block;
+      display: inline-block;
       margin-right: .5rem;
       font-size: 1.4rem;
+    }
+
+    &:hover::after{
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      border-bottom: 1px solid $color-tool;
     }
   }
 }
