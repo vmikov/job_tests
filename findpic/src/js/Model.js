@@ -29,4 +29,10 @@ export default class Model {
     this.storage.remove(id);
     return item;
   }
+
+  filterItems(items) {
+    const keys = this.favs.filter(item => !items.includes(item)).map(item => item.id);
+    this.favs = this.favs.filter(item => items.includes(item));
+    this.storage.removeItems(keys);
+  }
 }

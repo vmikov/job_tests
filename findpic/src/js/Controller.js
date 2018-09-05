@@ -42,7 +42,31 @@ export default class Controller {
   }
 
   viewFavourites() {
-    this.view.displayFavs(this.model.favs);
+    this.checkImages(this.model.favs);
+  }
+
+  checkImages(images) {
+    const promises = images.map(image => {
+      const p = new Promise((resolve) => {
+        const img = new Image();
+        img.onload = e => {
+          resolve(image);
+        };
+        img.src = image.src;
+        setTimeout(() => {
+          resolve(null);
+        }, 1000);
+      });
+      return p;
+    });
+
+    Promise.all(promises)
+      .then(data => data.filter(item => item !== null))
+      .then(data => {
+        this.view.displayFavs(data)
+        this.model.filterItems(data)
+      })
+      .catch(err => console.log(err.message));
   }
 
   getData(query, page) {

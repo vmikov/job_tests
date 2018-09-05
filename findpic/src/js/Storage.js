@@ -64,4 +64,10 @@ export default class Storage {
     data.items = items.filter(item => item.id !== id);
     this.set(data);
   }
+
+  removeItems(keys) {
+    const data = this.get();
+    data.items = data.items.filter(item => !keys.includes(item.id));
+    this.set(data);
+  }
 }

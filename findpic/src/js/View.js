@@ -154,16 +154,6 @@ export default class View extends EventEmitter {
   displayServiceData(items) {
     const markup = queryTemplateFunc(items);
     this.resultsGallery.insertAdjacentHTML('beforeend', markup);
-    // if (this.resultsGallery.children.length > 0) {
-    //   this.logo.classList.remove(View.LOGO_INIT_CLASS);
-    //   this.header.classList.remove(View.HEADER_INIT_CLASS);
-    //   this.nextSearchButton.classList.remove(View.HIDDEN_CLASS);
-
-    //   this.queryResults.classList.remove(View.HIDDEN_CLASS);
-    //   this.favs.classList.add(View.HIDDEN_CLASS);
-
-    //   this.startSearchInput.focus();
-    // }
     this.viewQueryResults();
   }
 
