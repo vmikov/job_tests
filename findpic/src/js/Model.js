@@ -19,15 +19,14 @@ export default class Model {
   }
 
   remove(id) {
-    const favs = this.favs.filter(item => item.id === id);
-    if (favs.length === 0) {
+    const fav = this.favs.find(item => item.id === id);
+    if (fav === undefined) {
       return null;
     }
 
-    const item = favs[0];
     this.favs = this.favs.filter(item => item.id !== id);
     this.storage.remove(id);
-    return item;
+    return fav;
   }
 
   filterItems(items) {

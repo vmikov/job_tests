@@ -1,13 +1,29 @@
 export default class Storage {
   constructor(key) {
-    this.storage = null;
+    let storage = null;
     this.key = key;
 
     if (window.localStorage) {
-      this.storage = window.localStorage;
-      if (!this.storage.getItem(key)) {
-        this.storage.setItem(key, JSON.stringify({ items: [] }));
+      storage = window.localStorage;
+      if (!storage.getItem(key)) {
+        storage.setItem(key, JSON.stringify({ items: [] }));
       }
+    }
+
+    this.get = () => {
+      if (!storage) {
+        return null;
+      }
+
+      return JSON.parse(storage.getItem(this.key));
+    }
+
+    this.set = value => {
+      if (!storage) {
+        return;
+      }
+
+      storage.setItem(this.key, JSON.stringify(value));
     }
   }
 
@@ -19,22 +35,6 @@ export default class Storage {
       console.log(err.message);
     }
     return storage;
-  }
-
-  get() {
-    if (!this.storage) {
-      return null;
-    }
-
-    return JSON.parse(this.storage.getItem(this.key));
-  }
-
-  set(value) {
-    if (!this.storage) {
-      return;
-    }
-
-    this.storage.setItem(this.key, JSON.stringify(value));
   }
 
   items() {

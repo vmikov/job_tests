@@ -38,6 +38,7 @@ export default class ModalManager {
     });
 
     this.modal.addEventListener("click", e => {
+      // console.log('click');
       e.stopPropagation();
       const target = e.target;
       const classList = target.classList;
@@ -51,6 +52,19 @@ export default class ModalManager {
         this.raiseAddToFavsEvent();
       }
     });
+
+    // this.modal.addEventListener("touchstart", e => {
+    //   console.log('touchStart');
+    // });
+    // this.modal.addEventListener("touchend", e => {
+    //   console.log('touchEnd');
+    // });
+    // this.modal.addEventListener("touchmove", e => {
+    //   console.log('touchMove');
+    // });
+    // this.modal.addEventListener("touchcancel", e => {
+    //   console.log('touchCancel');
+    // });
   }
 
   static create(...args) {

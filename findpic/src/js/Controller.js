@@ -34,8 +34,8 @@ export default class Controller {
 
   removeFromFavourites(id) {
     try {
-      const fav = this.model.remove(id);
-      this.view.removeFav(fav);
+      this.model.remove(id);
+      this.view.removeFav({ id });
     } catch (err) {
       console.log(err.message);
     }
