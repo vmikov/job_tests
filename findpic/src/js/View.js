@@ -57,6 +57,23 @@ export default class View extends EventEmitter {
         behavior: "smooth"
       });
     });
+
+    document.addEventListener("keydown", e => {
+      switch (e.key) {
+        case "Home":
+          window.scrollTo({ top: 0, left: 0, behaviour: "smooth" });
+          break;
+        case "End":
+          window.scrollTo({ top: document.body.offsetHeight, left: 0, behaviour: "smooth" });
+          break;
+        case "ArrowUp":
+          window.scrollBy(0, -10);
+          break;
+        case "ArrowDown":
+          window.scrollBy(0, 10);
+          break;
+      }
+    });
   }
 
   showToTopButton(show) {
@@ -79,7 +96,7 @@ export default class View extends EventEmitter {
     });
 
     this.nextSearchButton.addEventListener('click', e => {
-      this.emit(View.NEXT_SEARCH_EVENT, this.startSearchInput.value, ++page)
+      this.emit(View.NEXT_SEARCH_EVENT, this.startSearchInput.value, ++page);
     });
   }
 

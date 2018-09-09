@@ -38,7 +38,6 @@ export default class ModalManager {
     });
 
     this.modal.addEventListener("click", e => {
-      // console.log('click');
       e.stopPropagation();
       const target = e.target;
       const classList = target.classList;
