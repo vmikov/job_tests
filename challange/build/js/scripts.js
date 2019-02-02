@@ -3913,31 +3913,77 @@ function setChanges(card, percentage, changes, symbol) {
   if (percentage) {
     var percent = changes.percent;
     var hourChange = card.querySelector('.js-hour-change');
-    hourChange.textContent = formatNumber((percent.hour < 0 ? '' : '+') + percent.hour.toFixed(2)) + '%';
-    setChangeColor(hourChange, percent.hour);
+
+    if (!Number.isNaN(percent.hour)) {
+      hourChange.textContent = formatNumber((percent.hour < 0 ? '' : '+') + percent.hour.toFixed(2)) + '%';
+      setChangeColor(hourChange, percent.hour);
+    } else {
+      hourChange.textContent = '';
+    }
+
     var dayChange = card.querySelector('.js-day-change');
-    dayChange.textContent = formatNumber((percent.day < 0 ? '' : '+') + percent.day.toFixed(2)) + '%';
-    setChangeColor(dayChange, percent.day);
+
+    if (!Number.isNaN(percent.day)) {
+      dayChange.textContent = formatNumber((percent.day < 0 ? '' : '+') + percent.day.toFixed(2)) + '%';
+      setChangeColor(dayChange, percent.day);
+    } else {
+      dayChange.textContent = '';
+    }
+
     var weekChange = card.querySelector('.js-week-change');
-    weekChange.textContent = formatNumber((percent.week < 0 ? '' : '+') + percent.week.toFixed(2)) + '%';
-    setChangeColor(weekChange, percent.week);
+
+    if (!Number.isNaN(percent.week)) {
+      weekChange.textContent = formatNumber((percent.week < 0 ? '' : '+') + percent.week.toFixed(2)) + '%';
+      setChangeColor(weekChange, percent.week);
+    } else {
+      weekChange.textContent = '';
+    }
+
     var monthChange = card.querySelector('.js-month-change');
-    monthChange.textContent = formatNumber((percent.month < 0 ? '' : '+') + percent.month.toFixed(2)) + '%';
-    setChangeColor(monthChange, percent.month);
+
+    if (!Number.isNaN(percent.month)) {
+      monthChange.textContent = formatNumber((percent.month < 0 ? '' : '+') + percent.month.toFixed(2)) + '%';
+      setChangeColor(monthChange, percent.month);
+    } else {
+      monthChange.textContent = '';
+    }
   } else {
     var price = changes.price;
     var _hourChange = card.querySelector('.js-hour-change');
-    _hourChange.textContent = formatNumber((price.hour < 0 ? '' : '+') + price.hour.toFixed(2)) + symbol;
-    setChangeColor(_hourChange, price.hour);
+
+    if (!Number.isNaN(price.hour)) {
+      _hourChange.textContent = formatNumber((price.hour < 0 ? '' : '+') + price.hour.toFixed(2)) + symbol;
+      setChangeColor(_hourChange, price.hour);
+    } else {
+      _hourChange.textContent = '';
+    }
+
     var _dayChange = card.querySelector('.js-day-change');
-    _dayChange.textContent = formatNumber((price.day < 0 ? '' : '+') + price.day.toFixed(2)) + symbol;
-    setChangeColor(_dayChange, price.day);
+
+    if (!Number.isNaN(price.day)) {
+      _dayChange.textContent = formatNumber((price.day < 0 ? '' : '+') + price.day.toFixed(2)) + symbol;
+      setChangeColor(_dayChange, price.day);
+    } else {
+      _dayChange.textContent = '';
+    }
+
     var _weekChange = card.querySelector('.js-week-change');
-    _weekChange.textContent = formatNumber((price.week < 0 ? '' : '+') + price.week.toFixed(2)) + symbol;
-    setChangeColor(_weekChange, price.week);
+
+    if (!Number.isNaN(price.week)) {
+      _weekChange.textContent = formatNumber((price.week < 0 ? '' : '+') + price.week.toFixed(2)) + symbol;
+      setChangeColor(_weekChange, price.week);
+    } else {
+      _weekChange.textContent = '';
+    }
+
     var _monthChange = card.querySelector('.js-month-change');
-    _monthChange.textContent = formatNumber((price.month < 0 ? '' : '+') + price.month.toFixed(2)) + symbol;
-    setChangeColor(_monthChange, price.month);
+
+    if (!Number.isNaN(price.month)) {
+      _monthChange.textContent = formatNumber((price.month < 0 ? '' : '+') + price.month.toFixed(2)) + symbol;
+      setChangeColor(_monthChange, price.month);
+    } else {
+      _monthChange.textContent = '';
+    }
   }
 }
 
